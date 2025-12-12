@@ -7,6 +7,7 @@
  */
 
 #import "SVGPortability.h"
+#import "Macros.h"
 
 
 NS_ASSUME_NONNULL_BEGIN

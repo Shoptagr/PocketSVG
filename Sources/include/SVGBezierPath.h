@@ -55,7 +55,7 @@ FOUNDATION_EXTERN void SVGDrawPathsWithBlock(NSArray<SVGBezierPath*> * const pat
  * @brief Returns an array of paths given the XML string of an SVG.
  *
  */
-+ (NSArray<SVGBezierPath*> *)pathsFromSVGString:(NSString *)svgString;
++ (NSArray<SVGBezierPath*> *)pathsFromSVGString:(NSString *)svgString error:(NSError **)error;
 
 /*!
  * @brief Returns a new path with the values of `attributes` added to `svgAttributes`
