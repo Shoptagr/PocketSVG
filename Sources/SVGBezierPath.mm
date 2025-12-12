@@ -32,7 +32,8 @@
         NSString * const svgString = [NSString stringWithContentsOfURL:aURL
                                                            usedEncoding:NULL
                                                                   error:NULL];
-        paths =  [self pathsFromSVGString:svgString];
+        NSError *error = nil;
+        paths =  [self pathsFromSVGString:svgString error: &error];
         if (!paths) {
             paths = @[];
         }
@@ -42,8 +43,9 @@
     return [[NSArray alloc] initWithArray:safePaths copyItems:YES];
 }
 
-+ (NSArray<SVGBezierPath*> *)pathsFromSVGString:(NSString * const)svgString
++ (NSArray<SVGBezierPath*> *)pathsFromSVGString:(NSString * const)svgString error:(NSError **)error
 {
+    @try {
     if (svgString.length == 0) {
         return @[];
     }
@@ -57,6 +59,16 @@
         [paths addObject:uiPath];
     }
     return paths;
+    }
+        @catch (NSException *exception) {
+            // Fill the NSError pointer if provided
+            if (error) {
+                *error = [NSError errorWithDomain:@"PocketSVGErrorDomain"
+                                             code:1000
+                                         userInfo:@{NSLocalizedDescriptionKey: exception.reason ?: @"Unknown error"}];
+            }
+            return @[];
+        }
 }
 
 - (NSString *)SVGRepresentation
