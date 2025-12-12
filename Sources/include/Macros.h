@@ -5,6 +5,10 @@
 //  Created by João Freitas on 12/12/2025.
 //
 
+// Macros.h
+#ifndef MACROS_H
+#define MACROS_H
+
 #undef NSCParameterAssert
 #define NSCParameterAssert(condition)                                          \
     do {                                                                       \
@@ -18,3 +22,5 @@
                          userInfo:nil];                                        \
         }                                                                      \
     } while (0)
+
+#endif

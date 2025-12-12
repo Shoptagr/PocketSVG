@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <libxml2/libxml/xmlreader.h>
+#import "Macros.h"
 
 #ifdef __cplusplus
 extern "C" {

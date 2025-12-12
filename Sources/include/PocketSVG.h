@@ -10,3 +10,4 @@
 #import "SVGImageView.h"
 #import "SVGLayer.h"
 #import "SVGEngine.h"
+#import "Macros.h"
